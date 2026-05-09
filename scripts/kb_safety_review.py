@@ -1067,13 +1067,17 @@ Goal 007 should implement the project-owned SQLite-to-Markdown KB generator and 
 
 
 def promptfoo_command_text() -> str:
+    config_dir = os.environ.get("PROMPTFOO_CONFIG_DIR", "<local-promptfoo-config-dir>")
+    cache_dir = os.environ.get("PROMPTFOO_CACHE_PATH", "<local-promptfoo-cache-dir>")
+    log_dir = os.environ.get("PROMPTFOO_LOG_DIR", "<local-promptfoo-log-dir>")
+    entrypoint = os.environ.get("PROMPTFOO_ENTRYPOINT", "<local-promptfoo-entrypoint.js>")
     return (
         "$env:PROMPTFOO_DISABLE_TELEMETRY='1'; "
         "$env:PROMPTFOO_DISABLE_WAL_MODE='true'; "
-        "$env:PROMPTFOO_CONFIG_DIR='C:\\Users\\Ishan\\.codex\\memories\\agentic_workflow_tools\\goal006\\promptfoo_config'; "
-        "$env:PROMPTFOO_CACHE_PATH='C:\\Users\\Ishan\\.codex\\memories\\agentic_workflow_tools\\goal006\\promptfoo_cache'; "
-        "$env:PROMPTFOO_LOG_DIR='C:\\Users\\Ishan\\.codex\\memories\\agentic_workflow_tools\\goal006\\promptfoo_logs'; "
-        "node C:\\Users\\Ishan\\.codex\\memories\\agentic_workflow_tools\\goal006\\promptfoo-runner-ignore-scripts\\node_modules\\promptfoo\\dist\\src\\entrypoint.js "
+        f"$env:PROMPTFOO_CONFIG_DIR='{config_dir}'; "
+        f"$env:PROMPTFOO_CACHE_PATH='{cache_dir}'; "
+        f"$env:PROMPTFOO_LOG_DIR='{log_dir}'; "
+        f"node {entrypoint} "
         "eval -c evals/promptfoo/kb-safety-review.yaml --no-cache --output data/safety_reviews/goal-006/promptfoo_outputs/kb-safety-results.json"
     )
 
