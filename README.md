@@ -38,4 +38,12 @@ Generate and validate the local KB after private inputs are present:
 uv run --no-cache python -B scripts\build_kb.py --validate
 ```
 
+Generate the local external-backend safety inventory:
+
+```powershell
+uv run --no-cache python -B scripts\external_backend_safety_matrix.py `
+  --json-output data\safety_reviews\external_backend_matrix.json `
+  --markdown-output data\safety_reviews\external_backend_matrix.md
+```
+
 The repository treats SQLite as the local source of truth and keeps raw exports read-only.

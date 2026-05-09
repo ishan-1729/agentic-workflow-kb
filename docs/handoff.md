@@ -6,7 +6,7 @@ Local WhatsApp group exports have been imported into SQLite. Exhaustive linked-c
 
 ## Immediate Next Work
 
-No immediate required implementation remains for the repo-owned KB baseline. Preserve raw exports unchanged. Do not install, clone, execute, import, or run external GitHub projects. Future work is optional/explicitly gated: external vector or embedding backends, external graph databases/overlays, external GitHub project execution, and credentialed browser/profile scraping all require separate promptfoo-backed safety review and user/orchestrator approval.
+No immediate required implementation remains for the repo-owned KB baseline. Preserve raw exports unchanged. Do not install, clone, execute, import, or run external GitHub projects. Future work is optional/explicitly gated: external vector or embedding backends, external graph databases/overlays, external GitHub project execution, and credentialed browser/profile scraping all require separate promptfoo-backed safety review and user/orchestrator approval. The external-backend safety inventory is scaffolded in `docs/external-backend-safety-gate.md` and `scripts/external_backend_safety_matrix.py`; it opens SQLite read-only and writes ignored local reports under `data/safety_reviews/`.
 
 ## Planned Local Folders
 

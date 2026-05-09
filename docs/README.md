@@ -37,6 +37,7 @@ Build a factual, searchable, wiki-style knowledge base for this project from:
 10. Re-run Knowledge Base analysis after complete scraping and update the implementation if necessary.
 11. Enrich the knowledge base with graph/knowledge-graph comparisons and Venn-style comparison artifacts.
 12. Add regular keyword search and intent-based semantic search.
+13. Gate any external graph, vector, memory, or semantic-search backend behind static inventory, promptfoo review, and explicit approval.
 
 ## Resume Instructions
 
@@ -46,6 +47,7 @@ If context is lost, first read:
 2. `docs/operating-rules.md`
 3. `docs/cli-wake-bridge.md`
 4. `docs/data-pipeline.md`
-5. Latest file in `learnings/`
+5. `docs/external-backend-safety-gate.md`
+6. Latest file in `learnings/`
 
 Then inspect the SQLite database and local export folders before continuing.
