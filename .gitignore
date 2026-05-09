@@ -19,6 +19,7 @@ kb/*
 # Local Codex/app state and tool caches
 .codex/
 .tools/
+graphify-out/
 
 # SQLite databases and journals
 *.db

@@ -6,7 +6,7 @@ Local WhatsApp group exports have been imported into SQLite. Exhaustive linked-c
 
 ## Immediate Next Work
 
-No immediate required implementation remains for the repo-owned KB baseline. Preserve raw exports unchanged. Do not install, clone, execute, import, or run external GitHub projects. Future work is optional/explicitly gated: external vector or embedding backends, external graph databases/overlays, external GitHub project execution, and credentialed browser/profile scraping all require separate promptfoo-backed safety review and user/orchestrator approval. The external-backend safety inventory is scaffolded in `docs/external-backend-safety-gate.md` and `scripts/external_backend_safety_matrix.py`; it opens SQLite read-only and writes ignored local reports under `data/safety_reviews/`.
+No immediate required implementation remains for the repo-owned KB baseline. Preserve raw exports unchanged. External vector or embedding backends, external graph databases/overlays, external GitHub project execution, and credentialed browser/profile scraping are gated, not permanently forbidden: run the relevant static/promptfoo safety gate first, then advance only the approved stage. The external-backend safety inventory is scaffolded in `docs/external-backend-safety-gate.md` and `scripts/external_backend_safety_matrix.py`; it opens SQLite read-only and writes ignored local reports under `data/safety_reviews/`. Graphify has now advanced through sandboxed checkout and code-only `graphify update` smoke tests against synthetic/public copied code under `data/external_sandbox/`; it is still not approved for private corpus integration, hook installation, LLM-backed extraction, or repository-root execution.
 
 ## Planned Local Folders
 
@@ -43,6 +43,6 @@ The main orchestrator remains responsible for integration, safety checks, databa
 
 ## Known Blockers
 
-- promptfoo setup for Goal 006 succeeded in a documented local/Codex-memories setup, but external projects still require separate isolated execution gates before any install/run/adoption.
+- promptfoo setup for Goal 006 succeeded in a documented local/Codex-memories setup. Static review can unlock sandboxed checkout/inspection; install/run/adoption still require a candidate-specific isolated execution gate.
 - Python work should use `uv`; `uv 0.8.16` is available.
 - Scrapling static fetching works after adding explicit dependencies: `curl-cffi`, `playwright`, and `browserforge`.

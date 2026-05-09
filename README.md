@@ -60,4 +60,12 @@ uv run --no-cache python -B scripts\external_backend_safety_matrix.py `
   --markdown-output data\safety_reviews\external_backend_matrix.md
 ```
 
+Run an approved Graphify code-only sandbox against a public-safe source copy:
+
+```powershell
+uv run --no-cache python -B scripts\run_graphify_sandbox.py `
+  --graphify-project data\external_sandbox\graphify-<timestamp> `
+  --source scripts
+```
+
 The repository treats SQLite as the local source of truth and keeps raw exports read-only.
