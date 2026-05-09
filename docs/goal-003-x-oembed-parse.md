@@ -1,0 +1,21 @@
+# Goal 003: X/Twitter oEmbed Parse Threshold
+
+This goal is approved to launch with oEmbed as the primary method and sandboxed Playwright-managed Chromium as a fallback only when oEmbed does not produce enough parsed content.
+
+## Start Interactive CLI
+
+Run this in the terminal panel that will host the delegated Codex CLI agent:
+
+```powershell
+codex --disable fast_mode -C "<workspace>" -s workspace-write -m gpt-5.5 -c model_reasoning_effort="xhigh"
+```
+
+Then paste this into the Codex CLI composer:
+
+```text
+/goal Implement and run an X/Twitter parsed-content pass for this project without stopping until at least 50% of X/Twitter link rows have real parsed content, or until a precisely documented blocker requires orchestrator/user judgment. Read docs/README.md, docs/handoff.md, docs/operating-rules.md, docs/data-pipeline.md, docs/scraping.md, docs/browser-sandbox.md, docs/x-twitter-extraction-research.md, docs/codex-goals.md, docs/import-state.md, learnings/checkpoint-002-non-x-scrape.md, and learnings/checkpoint-003-x-first-pass.md before acting. Use uv only. Keep imports/ strictly read-only. Primary method: unauthenticated official oEmbed fetching via https://publish.x.com/oembed for public individual post URLs. Extract post IDs from x.com or twitter.com status URLs, normalize mobile/share variants, request oEmbed JSON, parse fallback HTML into structured content including post text, author, author URL, post date when present, and outbound links/cards when present, then store results durably in SQLite using existing or minimally extended schema. If oEmbed alone does not reach the 50% parsed-content threshold, fallback method is allowed only through Playwright-managed Chromium with a fresh project-local profile under data/browser_sandbox/goal-003-x-oembed-parse/ or a timestamped child directory. For browser fallback, use no login, no credentials, no cookies, no imported storage state, no personal browser profile, no real_chrome, no CDP connection to an existing browser, no CAPTCHA bypass, no public front ends, and no account context. Browser fallback may only view public X URLs that remain unparsed after oEmbed or need verification, capture bounded screenshot/HTML evidence, and parse visible public post content if it is actually present. Do not use X credentials, browser profile cookies, bearer tokens, paid APIs, internal GraphQL endpoints, proxy-rotation bypasses, authenticated account context, public front ends, or WhatsApp mutation. Do not install or run GitHub projects. A scrape_attempt row, HTTP 200 JavaScript shell, empty text, browser login wall, screenshot without visible post content, or generic retry_pending status does not count as parsed content. If schema or script changes are needed, make minimal changes only in scripts/ and docs/. You own only X/Twitter parsed-content code, data/db/agentic_workflow.db rows needed for parsed X content, data/scraped/raw/ or equivalent X oEmbed artifacts, data/browser_sandbox/goal-003-x-oembed-parse/ fallback artifacts, docs/scraping.md if needed, scripts/ if needed, learnings/checkpoint-004-x-oembed-parse.md, learnings/goal-003-x-oembed-parse.heartbeat.json, and learnings/goal-003-x-oembed-parse.done. Keep durable logging: attempted URLs, methods used, successes, failures, exact errors/reasons, parsed-content counts by link row and normalized URL, representative parsed samples, browser sandbox directory if used, and confirmation that no personal browser/profile/cookies/credentials were used. Update learnings/goal-003-x-oembed-parse.heartbeat.json at the start, after each major batch, and before writing done/blocker, including current counts and phase. Validate with uv run --no-cache python -B scripts/db_status.py and a SQLite query proving parsed_x_link_rows >= ceiling(0.50 * total_x_link_rows), or write a blocker with exact counts and reasons. At the very end, after validation passes or after documenting a blocker, write learnings/goal-003-x-oembed-parse.done with a one-paragraph completion/blocker summary beginning with GOAL_003_DONE or GOAL_003_BLOCKED. Stop when the 50% parsed-content threshold passes or a blocker requires orchestrator/user judgment.
+```
+
+## Orchestrator Note
+
+While this goal runs, the main orchestrator should not concurrently edit X parsing scripts, browser fallback scripts, sandbox artifacts, or the SQLite database.

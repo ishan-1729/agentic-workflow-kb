@@ -1,0 +1,25 @@
+# Goal 007: Exhaustive Link Scrape Retry
+
+## Goal Prompt
+
+```text
+/goal Exhaustively retry unresolved linked-content extraction for <workspace> without stopping until every link is either successfully captured or has a terminal logged reason, or until a precise blocker requires orchestrator/user judgment. Read docs/README.md, docs/handoff.md, docs/operating-rules.md, docs/scraping.md, docs/browser-sandbox.md, docs/codex-goals.md, docs/cli-wake-bridge.md, docs/knowledge-base-implementation.md, learnings/checkpoint-010-post-promptfoo-roadmap-correction.md, and learnings/checkpoint-011-baseline-kb.md before acting. Use uv only for Python. Keep imports/ and all WhatsApp exports strictly read-only. Do not use Nitter. Do not use the user's personal browser, browser profile, cookies, storage state, CDP connection, or real_chrome. Do not install, clone, import, execute, or run external GitHub projects. Use SQLite data/db/agentic_workflow.db as source of truth.
+
+Objective: resolve all currently unresolved scrape rows. Start by writing a baseline count query for latest scrape status per link and per domain. Treat the current kb/indexes/unresolved-scrape-gaps.md as a baseline view only; do not edit generated KB pages during this goal. Work in batches and log every important step.
+
+Allowed implementation scope: scripts/scrape_links.py, scripts/x_oembed_parse.py, a new project-owned sandbox-browser fallback script under scripts/ if needed, data/scraped/, data/browser_sandbox/, data/db/agentic_workflow.db scrape_attempt rows, learnings/goal-007-exhaustive-scrape-retry.heartbeat.json, learnings/goal-007-exhaustive-scrape-retry/, learnings/checkpoint-012-exhaustive-scrape-retry.md, and learnings/goal-007-exhaustive-scrape-retry.done. Do not edit kb/ generated pages; the orchestrator will regenerate KB after auditing this goal.
+
+Extraction order: first handle non-X retry_pending/no-attempt links with Scrapling through scripts/scrape_links.py. Then handle X/Twitter links with official unauthenticated oEmbed through scripts/x_oembed_parse.py using --no-stop-at-threshold so it processes all remaining public status URLs. Then, only for links still unresolved after oEmbed, use sandboxed Playwright-managed Chromium as a fallback. The sandbox must create a fresh project-local user_data_dir under data/browser_sandbox/goal-007-<timestamp>/, must not load storage_state, must not import cookies, must not log in, and must not bypass CAPTCHA/login/anti-bot walls. Browser-visible public content counts only when factual post/content text is captured; login walls, JavaScript shells, empty pages, and screenshots without visible post content do not count as success.
+
+Terminal statuses: do not leave links in retry_pending unless there is a blocker affecting the whole goal. For each link, end with one of success, inaccessible, auth_required, unsupported, terminal_failed, or another clearly documented terminal status. For transient network failures, retry with bounded backoff; if the environment cannot reach an entire service after retries, write a blocker with exact diagnostics. For X/Twitter, oEmbed remains primary; no Nitter or undocumented internal credentialed endpoints.
+
+Logging: keep learnings/goal-007-exhaustive-scrape-retry/attempts.jsonl with link id, normalized URL, domain, tool, status, HTTP status when known, error_type, error_message, artifact paths, timestamps, and retry count. Update learnings/goal-007-exhaustive-scrape-retry.heartbeat.json at start, after baseline counts, after non-X retry, after oEmbed retry, after sandbox-browser fallback batches, after SQLite writes, and before done/blocker. Store raw HTTP/oEmbed/browser artifacts under data/scraped/ or data/browser_sandbox/ with bounded filenames and paths recorded in metadata_json.
+
+Validation before done: run uv run --no-cache python -B scripts/db_status.py. Run compile checks for any changed scripts. Run SQLite validation queries showing latest scrape status counts by status/domain and proving there are zero latest retry_pending/no_attempt links unless the done file is GOAL_007_BLOCKED with exact blocker reasons. Run a query showing all X/Twitter links with parsed oEmbed or terminal fallback status. Write learnings/checkpoint-012-exhaustive-scrape-retry.md with start/end times, commands run, scripts changed, count deltas, successes, terminal failures by reason, sandbox-browser confirmation, unresolved/blocker details if any, and next orchestrator audit steps.
+
+At the very end, after validation passes or after documenting a blocker, write learnings/goal-007-exhaustive-scrape-retry.done with a one-paragraph completion/blocker summary beginning with GOAL_007_DONE or GOAL_007_BLOCKED. Stop after writing the done/blocker marker and a final concise summary; the CLI Stop hook in docs/cli-wake-bridge.md will wake the orchestrator.
+```
+
+## Orchestrator Notes
+
+While this goal runs, the main orchestrator should not concurrently edit scraper scripts, scrape status rows, browser sandbox artifacts, or Goal 007 checkpoint/done files.

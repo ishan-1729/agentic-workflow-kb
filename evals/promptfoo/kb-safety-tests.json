@@ -1,0 +1,184 @@
+[
+  {
+    "description": "KB safety review: Project-owned Obsidian-compatible Markdown wiki backed by SQLite",
+    "vars": {
+      "candidate_name": "Project-owned Obsidian-compatible Markdown wiki backed by SQLite",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/project-owned-obsidian-compatible-markdown-wiki-backed-by-sqlite.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/project-owned-obsidian-compatible-markdown-wiki-backed-by-sqlite.json"
+    },
+    "metadata": {
+      "candidate_name": "Project-owned Obsidian-compatible Markdown wiki backed by SQLite",
+      "candidate_slug": "project-owned-obsidian-compatible-markdown-wiki-backed-by-sqlite",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Karpathy LLM Wiki pattern",
+    "vars": {
+      "candidate_name": "Karpathy LLM Wiki pattern",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/karpathy-llm-wiki-pattern.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/karpathy-llm-wiki-pattern.json"
+    },
+    "metadata": {
+      "candidate_name": "Karpathy LLM Wiki pattern",
+      "candidate_slug": "karpathy-llm-wiki-pattern",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Obsidian-compatible local Markdown vault",
+    "vars": {
+      "candidate_name": "Obsidian-compatible local Markdown vault",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/obsidian-compatible-local-markdown-vault.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/obsidian-compatible-local-markdown-vault.json"
+    },
+    "metadata": {
+      "candidate_name": "Obsidian-compatible local Markdown vault",
+      "candidate_slug": "obsidian-compatible-local-markdown-vault",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: SQLite FTS5 lexical search layer",
+    "vars": {
+      "candidate_name": "SQLite FTS5 lexical search layer",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/sqlite-fts5-lexical-search-layer.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/sqlite-fts5-lexical-search-layer.json"
+    },
+    "metadata": {
+      "candidate_name": "SQLite FTS5 lexical search layer",
+      "candidate_slug": "sqlite-fts5-lexical-search-layer",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Ars Contexta",
+    "vars": {
+      "candidate_name": "Ars Contexta",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/ars-contexta.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/ars-contexta.json"
+    },
+    "metadata": {
+      "candidate_name": "Ars Contexta",
+      "candidate_slug": "ars-contexta",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Pal (Personal Agent that Learns)",
+    "vars": {
+      "candidate_name": "Pal (Personal Agent that Learns)",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/pal-personal-agent-that-learns.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/pal-personal-agent-that-learns.json"
+    },
+    "metadata": {
+      "candidate_name": "Pal (Personal Agent that Learns)",
+      "candidate_slug": "pal-personal-agent-that-learns",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: LLM Wiki desktop app (nashsu/llm_wiki)",
+    "vars": {
+      "candidate_name": "LLM Wiki desktop app (nashsu/llm_wiki)",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/llm-wiki-desktop-app-nashsu-llm-wiki.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/llm-wiki-desktop-app-nashsu-llm-wiki.json"
+    },
+    "metadata": {
+      "candidate_name": "LLM Wiki desktop app (nashsu/llm_wiki)",
+      "candidate_slug": "llm-wiki-desktop-app-nashsu-llm-wiki",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: claude-obsidian",
+    "vars": {
+      "candidate_name": "claude-obsidian",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/claude-obsidian.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/claude-obsidian.json"
+    },
+    "metadata": {
+      "candidate_name": "claude-obsidian",
+      "candidate_slug": "claude-obsidian",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Cognee",
+    "vars": {
+      "candidate_name": "Cognee",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/cognee.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/cognee.json"
+    },
+    "metadata": {
+      "candidate_name": "Cognee",
+      "candidate_slug": "cognee",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Understand Anything",
+    "vars": {
+      "candidate_name": "Understand Anything",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/understand-anything.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/understand-anything.json"
+    },
+    "metadata": {
+      "candidate_name": "Understand Anything",
+      "candidate_slug": "understand-anything",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: OpenWolf",
+    "vars": {
+      "candidate_name": "OpenWolf",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/openwolf.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/openwolf.json"
+    },
+    "metadata": {
+      "candidate_name": "OpenWolf",
+      "candidate_slug": "openwolf",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Graphify",
+    "vars": {
+      "candidate_name": "Graphify",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/graphify.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/graphify.json"
+    },
+    "metadata": {
+      "candidate_name": "Graphify",
+      "candidate_slug": "graphify",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: Obsidian Skills",
+    "vars": {
+      "candidate_name": "Obsidian Skills",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/obsidian-skills.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/obsidian-skills.json"
+    },
+    "metadata": {
+      "candidate_name": "Obsidian Skills",
+      "candidate_slug": "obsidian-skills",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  },
+  {
+    "description": "KB safety review: CocoIndex-style graph and semantic retrieval backend",
+    "vars": {
+      "candidate_name": "CocoIndex-style graph and semantic retrieval backend",
+      "candidate_json": "file://../../data/safety_reviews/goal-006/evidence/candidates/cocoindex-style-graph-and-semantic-retrieval-backend.json",
+      "review_output_path": "data/safety_reviews/goal-006/promptfoo_outputs/reviews/cocoindex-style-graph-and-semantic-retrieval-backend.json"
+    },
+    "metadata": {
+      "candidate_name": "CocoIndex-style graph and semantic retrieval backend",
+      "candidate_slug": "cocoindex-style-graph-and-semantic-retrieval-backend",
+      "goal_id": "goal-006-promptfoo-kb-safety-review"
+    }
+  }
+]

@@ -1,0 +1,81 @@
+description: Goal 006 static safety review for Knowledge Base candidates
+prompts:
+  - id: kb-safety-review
+    raw: |
+      Review this Knowledge Base candidate using only the supplied static evidence.
+      Candidate: {{candidate_name}}
+      Required dimensions:
+      - repository identity
+      - license
+      - maintenance health
+      - install/postinstall risk
+      - dependency risk
+      - Docker/CI/script risk
+      - runtime permissions
+      - browser/profile handling
+      - credential handling
+      - network behavior
+      - LLM prompt-injection/data-exfiltration risk
+      - Windows operational risk
+      - fit for this project's WhatsApp-to-SQLite-to-Markdown KB use case
+
+      Evidence:
+      {{candidate_json | dump}}
+providers:
+  - id: file://./kb_safety_provider.cjs
+    label: deterministic-static-safety-review
+defaultTest:
+  assert:
+    - type: javascript
+      value: |
+        const parsed = JSON.parse(output);
+        const required = [
+          'repository_identity',
+          'license',
+          'maintenance_health',
+          'install_postinstall_risk',
+          'dependency_risk',
+          'docker_ci_script_risk',
+          'runtime_permissions',
+          'browser_profile_handling',
+          'credential_handling',
+          'network_behavior',
+          'prompt_injection_data_exfiltration',
+          'windows_operational_risk',
+          'project_fit',
+        ];
+        const missing = required.filter((key) => !parsed.dimensions || !parsed.dimensions[key]);
+        if (missing.length) {
+          return false;
+        }
+        return true;
+    - type: javascript
+      value: |
+        const parsed = JSON.parse(output);
+        if (!Array.isArray(parsed.source_urls) || parsed.source_urls.length === 0) {
+          return false;
+        }
+        return true;
+    - type: javascript
+      value: |
+        const parsed = JSON.parse(output);
+        const validRisk = ['low', 'medium', 'high', 'unknown'];
+        const validFit = ['low', 'medium', 'high', 'unknown'];
+        if (!validRisk.includes(parsed.overall_risk)) {
+          return false;
+        }
+        if (!validFit.includes(parsed.fit_rating)) {
+          return false;
+        }
+        if (!parsed.final_disposition || !parsed.summary) {
+          return false;
+        }
+        return true;
+    - type: javascript
+      value: |
+        const parsed = JSON.parse(output);
+        if (parsed.final_disposition && parsed.final_disposition.startsWith('approve_initial') && parsed.overall_risk === 'high') {
+          return false;
+        }
+        return true;
+tests: file://./kb-safety-tests.json

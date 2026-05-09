@@ -1,0 +1,100 @@
+{
+  "checks": {
+    "all_unique_messages_classified": true,
+    "intent_search_validated": true,
+    "kb_pages_match_fts": true,
+    "kb_validation_ok": true,
+    "keyword_search_validated": true,
+    "no_unresolved_latest_scrapes": true,
+    "required_pages_exist": true,
+    "sqlite_integrity_ok": true
+  },
+  "classification_rows": 2578,
+  "deferred_safety_gate_required_for": [
+    "external vector or embedding backend",
+    "external graph database or graph overlay runtime",
+    "external GitHub project execution",
+    "credentialed browser/profile scraping"
+  ],
+  "fts_rows": 638,
+  "integrity_check": "ok",
+  "kb_pages": 638,
+  "kb_validation": {
+    "fts_rows": 638,
+    "generated_pages": 638,
+    "integrity_check": "ok",
+    "kb_pages_rows": 638,
+    "markdown_files": 638,
+    "missing_frontmatter": [],
+    "missing_provenance": [],
+    "ok": true,
+    "sample_intent_search_hits": 5,
+    "sample_search_hits": 5,
+    "unresolved_wikilink_count": 0,
+    "unresolved_wikilinks": [],
+    "validated_at": "2026-05-09T21:41:01+00:00"
+  },
+  "latest_scrape_status_counts": [
+    {
+      "count": 4,
+      "status": "inaccessible"
+    },
+    {
+      "count": 584,
+      "status": "success"
+    }
+  ],
+  "ok": true,
+  "page_type_counts": [
+    {
+      "count": 1,
+      "page_type": "backlink_index"
+    },
+    {
+      "count": 14,
+      "page_type": "candidate"
+    },
+    {
+      "count": 2,
+      "page_type": "comparison"
+    },
+    {
+      "count": 1,
+      "page_type": "decision"
+    },
+    {
+      "count": 1,
+      "page_type": "graph_index"
+    },
+    {
+      "count": 1,
+      "page_type": "index"
+    },
+    {
+      "count": 1,
+      "page_type": "scrape_gaps"
+    },
+    {
+      "count": 1,
+      "page_type": "search_guide"
+    },
+    {
+      "count": 598,
+      "page_type": "source_message"
+    },
+    {
+      "count": 18,
+      "page_type": "topic"
+    }
+  ],
+  "required_pages": {
+    "kb/comparisons/candidate-comparison.md": true,
+    "kb/comparisons/graph-memory-search-comparison.md": true,
+    "kb/index.md": true,
+    "kb/indexes/backlinks.md": true,
+    "kb/indexes/topic-cooccurrence-graph.md": true,
+    "kb/search.md": true
+  },
+  "unclassified_unique_messages": 0,
+  "unresolved_latest_scrape_count": 0
+}
