@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-05-09T23:31:23+00:00",
+  "generator": "scripts/build_kb.py",
+  "generator_version": "baseline-kb-v1",
+  "pages": [
+    "index.md",
+    "decisions/knowledge-base-approach.md",
+    "comparisons/candidate-comparison.md",
+    "indexes/topic-cooccurrence-graph.md",
+    "comparisons/graph-memory-search-comparison.md",
+    "candidates/project-owned-obsidian-compatible-markdown-wiki-backed-by-sqlite.md",
+    "candidates/karpathy-llm-wiki-pattern.md",
+    "candidates/obsidian-compatible-local-markdown-vault.md",
+    "candidates/sqlite-fts5-lexical-search-layer.md",
+    "candidates/synthetic-graph-overlay-backend.md",
+    "topics/graphs-knowledge-graphs.md",
+    "topics/knowledge-base.md",
+    "topics/memory.md",
+    "topics/methods-workflows.md",
+    "topics/safety-verification.md",
+    "topics/search-retrieval.md",
+    "topics/verification-evals.md",
+    "sources/messages/message-000001.md",
+    "sources/messages/message-000002.md",
+    "sources/messages/message-000003.md",
+    "sources/messages/message-000004.md",
+    "sources/messages/message-000005.md",
+    "indexes/unresolved-scrape-gaps.md",
+    "search.md",
+    "indexes/backlinks.md"
+  ]
+}

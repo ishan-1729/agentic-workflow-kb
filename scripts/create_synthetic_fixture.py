@@ -10,10 +10,9 @@ from pathlib import Path
 from ingest_whatsapp import run_ingest
 
 
-WORKSPACE = Path(__file__).resolve().parents[1]
-DEFAULT_IMPORTS = WORKSPACE / "fixtures" / "synthetic" / "imports"
-DEFAULT_DB = WORKSPACE / "data" / "fixtures" / "synthetic" / "agentic_workflow.db"
-DEFAULT_INTERMEDIATE = WORKSPACE / "data" / "fixtures" / "synthetic" / "intermediate"
+DEFAULT_IMPORTS = Path("fixtures") / "synthetic" / "imports"
+DEFAULT_DB = Path("data") / "fixtures" / "synthetic" / "agentic_workflow.db"
+DEFAULT_INTERMEDIATE = Path("data") / "fixtures" / "synthetic" / "intermediate"
 
 CLASSIFICATION_METHOD = "synthetic-fixture-rule-based-v1"
 SAFETY_METHOD = "synthetic-fixture-static-review-v1"
@@ -325,7 +324,7 @@ def add_decision(conn: sqlite3.Connection, now: str) -> int:
 def create_fixture(args: argparse.Namespace) -> dict[str, int | str]:
     args.db.parent.mkdir(parents=True, exist_ok=True)
     args.intermediate_dir.mkdir(parents=True, exist_ok=True)
-    ingest_stats = run_ingest(args.imports_dir.resolve(), args.db.resolve(), args.intermediate_dir.resolve(), rebuild=True)
+    ingest_stats = run_ingest(args.imports_dir, args.db, args.intermediate_dir, rebuild=True)
     now = utc_now()
     with connect(args.db) as conn:
         scrape_attempts = add_scrape_attempts(conn, now)
