@@ -702,17 +702,15 @@ def page_for_scrape_gaps(corpus: dict[str, Any]) -> Page:
     status_counts: Counter[str] = Counter()
     unresolved: list[sqlite3.Row] = []
     terminal_gaps: list[sqlite3.Row] = []
-    source_link_ids: list[int] = []
+    source_link_ids: list[int] = [int(link["id"]) for link in links]
     for link in links:
         attempt = latest.get(int(link["id"]))
         status = attempt["status"] if attempt else "no_attempt"
         status_counts[status] += 1
         if status in {"retry_pending", "no_attempt"}:
             unresolved.append(link)
-            source_link_ids.append(int(link["id"]))
         elif status != "success":
             terminal_gaps.append(link)
-            source_link_ids.append(int(link["id"]))
     body = [
         "# Unresolved Scrape Gaps",
         "",

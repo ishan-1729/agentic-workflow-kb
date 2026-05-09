@@ -13,6 +13,8 @@ imports/
 data/
 kb/*
 !kb/README.md
+!fixtures/
+!fixtures/**
 
 # Local Codex/app state and tool caches
 .codex/

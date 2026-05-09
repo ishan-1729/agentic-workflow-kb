@@ -1,0 +1,5 @@
+[05/10/26, 09:00] - Synthetic Alice: Add to Codex: Build a SQLite-backed Markdown wiki for agent workflow notes, with Obsidian-style links, source provenance, and local FTS search. https://example.com/synthetic/local-kb-pattern
+[05/10/26, 09:02] - Synthetic Bob: Add to Claude Code: Verification loops should run after each generated KB build and should fail on missing provenance, unresolved links, or empty search results. https://example.com/synthetic/verification-loop
+[05/10/26, 09:04] - Synthetic Carol: Add to Codex: Graph overlays belong after the source-backed Markdown baseline is stable; keep graph databases optional and gated by static review. https://example.com/synthetic/graph-overlay
+[05/10/26, 09:06] - Synthetic Dev: Add to prompt engineering: Intent search can expand local terms like memory, graph, and retrieval without calling an embedding API. https://example.com/synthetic/intent-search
+[05/10/26, 09:08] - Synthetic Alice: Add to Codex: Build a SQLite-backed Markdown wiki for agent workflow notes, with Obsidian-style links, source provenance, and local FTS search. https://example.com/synthetic/local-kb-pattern

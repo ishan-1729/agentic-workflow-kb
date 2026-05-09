@@ -9,6 +9,7 @@ This public repository contains the reusable pipeline, orchestration docs, safet
 - `scripts/`: ingestion, scraping, classification, KB generation, search, safety review, and Codex goal orchestration helpers.
 - `docs/`: operating rules, data pipeline notes, scraping/browser constraints, goal specs, and handoff guidance.
 - `evals/`: promptfoo configuration used for static KB candidate safety review.
+- `fixtures/`: synthetic public inputs for smoke-testing without private corpus data.
 - `learnings/checkpoint-*.md`: curated checkpoint records from major implementation phases.
 
 ## What Is Excluded
@@ -35,7 +36,17 @@ uv run --no-cache python -B scripts\db_status.py
 Generate and validate the local KB after private inputs are present:
 
 ```powershell
-uv run --no-cache python -B scripts\build_kb.py --validate
+uv run --no-cache python -B scripts\build_kb.py generate
+uv run --no-cache python -B scripts\build_kb.py validate
+```
+
+Smoke-test the public synthetic fixture:
+
+```powershell
+uv run --no-cache python -B scripts\create_synthetic_fixture.py
+uv run --no-cache python -B scripts\build_kb.py --db data\fixtures\synthetic\agentic_workflow.db --kb-dir data\fixtures\synthetic\kb generate
+uv run --no-cache python -B scripts\build_kb.py --db data\fixtures\synthetic\agentic_workflow.db --kb-dir data\fixtures\synthetic\kb validate --json
+uv run --no-cache python -B scripts\build_kb.py --db data\fixtures\synthetic\agentic_workflow.db --kb-dir data\fixtures\synthetic\kb intent-search "agent memory graph" --json
 ```
 
 Generate the local external-backend safety inventory:
